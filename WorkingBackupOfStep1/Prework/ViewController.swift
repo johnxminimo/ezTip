@@ -32,8 +32,8 @@ class ViewController: UIViewController {
         let total = tip+billAmount
         
         // Updates text labels with correct toatls
-        tipAmountLabel.text = String( format: "$%.2f", tip)
-        totalLabel.text =  String(format: "$%.2f",total)
+        tipAmountLabel.text = String(format: "%.2f", tip)
+        totalLabel.text = String(format: "%.2f",total)
         
         
         
