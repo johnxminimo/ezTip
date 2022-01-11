@@ -38,7 +38,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 Needed to learn Xcode and its layout, and how storyboard connects and is implemented with swift.
 Had to get used to swift syntax and quirks coming from mostly writing programs in java.
 Needed to figure out why total was not updating on the fly. Implemented a method which tracks change, and then calls updateBill method
-
+Still need to learn auto layout so that the app properly scales to different screen sizes.
 ## License
 
     Copyright [2022] [John Paul Minimo]
