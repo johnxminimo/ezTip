@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.title = "Tip Calculator"
         stepper.wraps = true
         stepper.autorepeat = true
         stepper.maximumValue = 10
@@ -34,7 +36,7 @@ class ViewController: UIViewController {
         
         
     }
-    
+    // Function which updates bill and totals with correct content
     func updateBill(){
         // Bill Value to billAmount constant
         billAmount = Double(billAmountTextField.text!) ?? 0.0
@@ -64,11 +66,14 @@ class ViewController: UIViewController {
         
         
     }
+    
+    // Tracks which checks if stepper has been increased or decreased then calls updateBill()
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         stepperCounter.text = Int(sender.value).description
         updateBill()
     }
     
+    // Track when billAmount is changed and calls updateBill()
     @IBAction func billAmountChanged(_ sender: UITextField) {
         billAmount = Double(billAmountTextField.text!) ?? 0.0
         updateBill()
