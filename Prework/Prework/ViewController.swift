@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var stepperCount: UILabel!
     @IBOutlet weak var stepperCounter: UILabel!
     let defaultTipPerc: [Double] = [0.15,0.18,0.20]
+    var billAmount:Double = 0.0
     
     
     override func viewDidLoad() {
@@ -36,7 +37,7 @@ class ViewController: UIViewController {
     
     func updateBill(){
         // Bill Value to billAmount constant
-        let billAmount:Double = Double(billAmountTextField.text!) ?? 0.0
+        billAmount = Double(billAmountTextField.text!) ?? 0.0
         
         // Get person count from stepper
         let personCount:Double = Double(stepperCounter.text!) ?? 1.0
@@ -68,5 +69,10 @@ class ViewController: UIViewController {
         updateBill()
     }
     
+    @IBAction func billAmountChanged(_ sender: UITextField) {
+        billAmount = Double(billAmountTextField.text!) ?? 0.0
+        updateBill()
+        
+    }
 }
 
