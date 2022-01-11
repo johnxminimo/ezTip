@@ -35,7 +35,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Needed to learn Xcode and its layout, and how storyboard connects and is implemented.
+Had to get used to swift syntax and quirks coming from mostly writing programs in java.
+Needed to figure out how to sync with system theme.
 
 ## License
 
