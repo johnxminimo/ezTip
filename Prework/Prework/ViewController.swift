@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stepperCount: UILabel!
     @IBOutlet weak var stepperCounter: UILabel!
+    let defaultTipPerc: [Double] = [0.15,0.18,0.20]
     
     
     override func viewDidLoad() {
@@ -28,32 +29,43 @@ class ViewController: UIViewController {
     }
 
     @IBAction func calculateTip(_ sender: Any) {
-        
-        // Gets billAmount value
-        let billAmount:Double = Double(self.billAmountTextField.text!) ?? 0.0
-        let tipPercentages:[Double] = [0.15, 0.18, 0.2]
-        // Calculate tip by multiplying billAmount by selected tipPercentage
-        let tip = billAmount*tipPercentages[tipControl.selectedSegmentIndex]
-
-        
-        // Calculate total by adding tip + billAmount
-        let total = tip+billAmount
-        let personCount:Double = Double(self.stepperCounter.text!) ?? 0.0
-        
-        let totalPerP = total/personCount
+        updateBill()
         
         
-        // Updates text labels with correct toatls
-        tipAmountLabel.text = String( format: "$%.2f", tip)
-        totalLabel.text =  String(format: "$%.2f",total)
-        totalPerPerson.text = String(format:"Total Per Person: $%.2f", totalPerP)
+    }
+    
+    func updateBill(){
+        // Bill Value to billAmount constant
+        let billAmount:Double = Double(billAmountTextField.text!) ?? 0.0
+        
+        // Get person count from stepper
+        let personCount:Double = Double(stepperCounter.text!) ?? 1.0
+        
+        // Calculate tip from subtotal bill amount
+        let tip:Double = billAmount*defaultTipPerc[tipControl.selectedSegmentIndex]
+        
+        // Calculate total bill
+        let totalBillAmount:Double = tip+billAmount
         
         
+        // Calculate split value if multiple people are present
+        var splitBill:Double
+        if personCount > 1 {
+            splitBill = totalBillAmount/personCount
+        } else {
+            splitBill = totalBillAmount
+        }
+        
+        // Update text labels with correct total
+        tipAmountLabel.text = String(format: "$%.2f", tip)
+        totalLabel.text = String(format: "$%.2f", totalBillAmount)
+        totalPerPerson.text = String(format:"Total Per Person: $%.2f", splitBill)
         
         
     }
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         stepperCounter.text = Int(sender.value).description
+        updateBill()
     }
     
 }
