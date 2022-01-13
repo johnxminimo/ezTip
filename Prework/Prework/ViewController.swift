@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Darwin
+
 
 class ViewController: UIViewController {
 
@@ -19,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var stepperCounter: UILabel!
     let defaultTipPerc: [Double] = [0.15,0.18,0.20]
     var billAmount:Double = 0.0
+    @IBOutlet weak var roundBillSwitch: UISwitch!
     
     
     override func viewDidLoad() {
@@ -48,16 +51,21 @@ class ViewController: UIViewController {
         let tip:Double = billAmount*defaultTipPerc[tipControl.selectedSegmentIndex]
         
         // Calculate total bill
-        let totalBillAmount:Double = tip+billAmount
+        var totalBillAmount:Double = tip+billAmount
         
         
         // Calculate split value if multiple people are present
         var splitBill:Double
+        if roundBillSwitch.isOn{
+            totalBillAmount = Darwin.ceil(totalBillAmount)
+        }
         if personCount > 1 {
             splitBill = totalBillAmount/personCount
         } else {
             splitBill = totalBillAmount
         }
+        
+
         
         // Update text labels with correct total
         tipAmountLabel.text = String(format: "$%.2f", tip)
@@ -78,6 +86,11 @@ class ViewController: UIViewController {
         billAmount = Double(billAmountTextField.text!) ?? 0.0
         updateBill()
         
+    }
+    
+    
+    @IBAction func roundBillChanged(_ sender: UISwitch) {
+        updateBill()
     }
 }
 

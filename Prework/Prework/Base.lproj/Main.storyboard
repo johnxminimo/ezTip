@@ -108,6 +108,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Round Bill?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgo-rJ-IBU">
+                                <rect key="frame" x="31" y="569" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="RoundBillSwitch" translatesAutoresizingMaskIntoConstraints="NO" id="ihZ-Ed-TVF">
+                                <rect key="frame" x="312" y="564" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="roundBillChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="cuE-l8-4iv"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -121,6 +135,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billAmountTextField" destination="YBl-K1-qeD" id="R7X-VB-pGb"/>
+                        <outlet property="roundBillSwitch" destination="ihZ-Ed-TVF" id="jaf-Yf-18d"/>
                         <outlet property="stepper" destination="aAs-Jj-Cki" id="4ox-aw-djh"/>
                         <outlet property="stepperCount" destination="W1Z-dA-9gJ" id="UXQ-Ln-71x"/>
                         <outlet property="stepperCounter" destination="XAp-bb-rsk" id="gpq-tI-EjN"/>
