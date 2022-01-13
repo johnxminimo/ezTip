@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         // Update text labels with correct total
         tipAmountLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", totalBillAmount)
-        totalPerPerson.text = String(format:"Total Per Person: $%.2f", splitBill)
+        totalPerPerson.text = String(format:"$%.2f", splitBill)
         
         
     }
