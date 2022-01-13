@@ -24,6 +24,7 @@ The following **additional** features are implemented:
 
 - [x] Dark Mode
 - [x] Split Bill Calculator (Split the bill between multiple people) 
+- [x] Added rounded bill switch 
 
 ## Video Walkthrough
 
