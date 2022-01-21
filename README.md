@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] Dark Mode
+- [x] Dark Mode (only works when systemwide darkmode is on, but switch does not work)
 - [x] Split Bill Calculator (Split the bill between multiple people) 
 - [x] Added rounded bill switch 
 
@@ -40,6 +40,7 @@ Needed to learn Xcode and its layout, and how storyboard connects and is impleme
 Had to get used to swift syntax and quirks coming from mostly writing programs in java.
 Needed to figure out why total was not updating on the fly. Implemented a method which tracks change, and then calls updateBill method
 Still need to learn auto layout so that the app properly scales to different screen sizes.
+
 ## License
 
     Copyright [2022] [John Paul Minimo]
